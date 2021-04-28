@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.0.0.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.5/waypoints.min.js"></script>
+  </head>
+  <body>
+    <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
+
+	<div id="player1" class="player"></div>
+    <div id="player2" class="player"></div>	
+    <div id="player3" class="player"></div>	
+    <div id="player4" class="player"></div>
+	
+    <div id="player5" class="player"></div>
+	
+
+<style type="text/css">
+  
+.player {
+  margin-bottom: 110vh;
+  border-top: 5px solid red;
+  display: block;
+}
+
+</style>
+
+<script>
+  
+
+
+
+var tag = document.createElement('script');
+
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+var playerDivs = document.querySelectorAll(".player");
+var playerDivsArr = [].slice.call(playerDivs); 
+var players = new Array(playerDivsArr.length); 
+var waypoints = new Array(playerDivsArr.length);
+
+
+function onYouTubeIframeAPIReady() {
+  
+ 
+  playerDivsArr.forEach(function(e, i) { 
+    players[i] = new YT.Player(e.id, {
+      height: '390',
+      width: '640',
+      videoId: 'M7lc1UVf-VE',
+      events: { onReady: initialize }
+    }
+    )
+  })
+
+  // create waypoints
+  $(".player").each(function(i, e) {
+    waypoints[i] = new Waypoint({
+      element: e,
+      handler: function() {
+        players[i].playVideo();
+      }
+    })
+  });
+  
+}
+
+function initialize() {
+  players.forEach(function(yt, i) {
+    yt.mute();
+  });
+}
+
+
+
+</script>
+</body></html>
+
