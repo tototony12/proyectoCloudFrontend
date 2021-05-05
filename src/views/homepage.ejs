@@ -1,0 +1,103 @@
+ 
+<script src="/bower_components/platform/platform.js"></script>
+<script type="text/javascript" src="/bower_components/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.youtube.com/player_api"></script>
+
+<link rel="import" href="/bower_components/polymer/polymer.html">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+<!--<polymer-element name="player-element" class="play_or_not" attributes="id" constructor="PlayerElement">-->
+<polymer-element name="player-element">
+<html>
+<head>
+<style>
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 180px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div>
+
+        <br>
+<div class="container-fluid">
+    <table class="table" cellspacing="0" >
+        <tr>
+            <td>
+                <h2> ¡Bienvenido <%= user.fullname%>! <br> 
+                    Estos son los cursos disponibles para ti</h2>
+            </td>
+            <td>
+                <form method="POST" action="/logout">
+                    <button type="submit" class="btn btn-outline-danger btn-block">Cerrar sesión</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+    
+    <table class="table table-striped" cellspacing="0" >
+       <tr>
+          <td> <a href="duckduckgo.com"><button type="button" class="btn btn-outline-success btn-lg btn-block">
+                Introducción al testing automatizado con Katalon
+            </button></a></td>
+          <td><button type="button" class="btn btn-outline-success btn-lg btn-block">
+                Introducción al protocolo MAVLink V2 
+          </button></td>
+          <td> <button type="button" class="btn btn-outline-success btn-lg btn-block">
+                Introducción a AWS
+          </button></td>
+       </tr>
+       <tr>
+        <td> <button type="button" class="btn btn-outline-success btn-lg btn-block">
+            Introducción a Cisco IOS
+        </button></td>
+      <td><button type="button" class="btn btn-outline-success btn-lg btn-block">
+            Programación en Swift
+      </button></td>
+      <td> <button type="button" class="btn btn-outline-success btn-lg btn-block">
+            Introducción a Docker
+      </button></td>
+       </tr>
+       <tr>
+        <td> <button type="button" class="btn btn-outline-success btn-lg btn-block">
+            Trucos de consola UNIX
+        </button></td>
+      <td><button type="button" class="btn btn-outline-success btn-lg btn-block">
+            Uso de PUG con Node.JS
+      </button></td>
+      <td> <button type="button" class="btn btn-outline-success btn-lg btn-block">
+            Como hacer las mejores hamburguesas
+      </button></td>
+       </tr>
+   </table>
+</div>
+	
+
+</body>
+</html>
+   
+</polymer-element>
+
+
+
+
