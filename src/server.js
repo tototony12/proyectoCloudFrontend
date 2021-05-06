@@ -10,35 +10,31 @@ import passport from "passport";
 
 let app = express();
 
-//use cookie parser
 app.use(cookieParser('secret'));
 
-//config session
 app.use(session({
     secret: 'secret',
     resave: true,
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000 * 60 * 60 * 24 // 86400000 1 day
+        maxAge: 1000 * 60 * 60 * 24 // 86400000 1 dia
     }
 }));
 
-// Enable body parser post data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Config view engine
+//View engine
 configViewEngine(app);
 
-//Enable flash message
 app.use(connectFlash());
 
-//Config passport middleware
+//Configuración de middleware
 app.use(passport.initialize());
 app.use(passport.session());
 
-// init all web routes
+// Iniciar rutas
 initWebRoutes(app);
 
 let port = process.env.PORT || 8080;
-app.listen(port, () => console.log(`Building a login system with NodeJS is running on port ${port}!`));
+app.listen(port, () => console.log(`El inicio de sesión esta siendo ejecutado en ${port}!`));

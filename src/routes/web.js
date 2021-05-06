@@ -6,7 +6,6 @@ import auth from "../validation/authValidation";
 import passport from "passport";
 import initPassportLocal from "../controllers/passportLocalController";
 
-// Init all passport
 initPassportLocal();
 
 let router = express.Router();

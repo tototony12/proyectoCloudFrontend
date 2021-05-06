@@ -3,12 +3,12 @@ import bcrypt from "bcryptjs";
 
 let createNewUser = (data) => {
     return new Promise(async (resolve, reject) => {
-        // check email is exist or not
+        // verificar si existe email
         let isEmailExist = await checkExistEmail(data.email);
         if (isEmailExist) {
             reject(`This email "${data.email}" has already exist. Please choose an other email`);
         } else {
-            // hash password
+            // hashear contraseña
             let salt = bcrypt.genSaltSync(10);
             let userItem = {
                 fullname: data.fullname,
@@ -16,7 +16,7 @@ let createNewUser = (data) => {
                 password: bcrypt.hashSync(data.password, salt),
             };
 
-            //create a new account
+            //crear la cuenta
             DBConnection.query(
                 ' INSERT INTO users set ? ', userItem,
                 function(err, rows) {
