@@ -1,5 +1,5 @@
 ARG PORT=8080
-FROM node:12-alpine
+FROM node:14-alpine
 LABEL autor="Antonio Ortiz"
 WORKDIR /usr/src/app
 COPY package*.json ./
